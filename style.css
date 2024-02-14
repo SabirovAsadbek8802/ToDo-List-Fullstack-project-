@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background-image {
+    background-image: url(bg-img.jpg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    width: 400px;
+    height: 250px;
+    
+    background-color: rgba(194, 194, 194, 0.485);
+    text-align: center;
+    margin-left: 34%;
+    margin-top: 15%;
+    border-radius: 6px;
+}
+
+.title {
+    font-size: 22px;
+    padding-top: 15px;
+}
+
+.input-area {
+    margin-top: 15px;
+}
+
+#text-input {
+    font-size: 15px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 5px;
+}
+
+#text-input::placeholder {
+    padding-left: 3px;   
+}
+
+#add-btn {
+    height: 30px;
+    width: 50px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+#add-btn:active {
+    background-color: green;
+}
+
+.list-item {
+    width: 350px;
+    text-align: left;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tasks-list {
+    width: 100%;
+    height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
