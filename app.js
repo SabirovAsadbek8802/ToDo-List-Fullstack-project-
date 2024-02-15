@@ -10,13 +10,26 @@ function saveTasksToLocalStorage() {
 
 function updateList() {
     listTasks.innerHTML = '';
-    itemsArr.forEach((task, index) => {
+    itemsArr.forEach((taskObj, index) => {
+        const task = taskObj.task;
+        const isDone = taskObj.done;
+
         const li = document.createElement("li");
         li.classList.add("list-item");
+        if (isDone) {
+            li.classList.add("done");
+        }
 
         const exitBtn = document.createElement('button');
         exitBtn.setAttribute("class", "exitBtn");
         exitBtn.innerText = "x";
+
+        const doneBtn = document.createElement("button")
+        doneBtn.setAttribute("class", "doneBtn")
+        doneBtn.innerText = "✔️"
+
+        const btnsDiv = document.createElement("div")
+        btnsDiv.classList.add("btnsDiv")
 
         const counterText = document.createTextNode(index + 1 + ". ");
         li.appendChild(counterText);
@@ -25,7 +38,15 @@ function updateList() {
         li.appendChild(itemText);
 
         listTasks.appendChild(li);
-        li.appendChild(exitBtn);
+        li.appendChild(btnsDiv)
+        btnsDiv.appendChild(doneBtn);
+        btnsDiv.appendChild(exitBtn);
+
+        doneBtn.addEventListener("click", () => {
+            li.classList.toggle("done");
+            itemsArr[index].done = !itemsArr[index].done;
+            saveTasksToLocalStorage();
+        });
 
         exitBtn.addEventListener("click", () => {
             li.parentNode.removeChild(li);
@@ -41,7 +62,7 @@ updateList();
 addBtn.addEventListener("click", () => {
     const task = taskContent.value.trim();
     if (task !== '') {
-        itemsArr.push(task);
+        itemsArr.push({ task: task, done: false });
         saveTasksToLocalStorage();
         updateList();
         taskContent.value = '';

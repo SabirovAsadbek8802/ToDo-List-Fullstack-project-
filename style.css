@@ -68,7 +68,6 @@
     text-align: left;
     margin-left: 25px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -77,4 +76,36 @@
     height: 160px;
     overflow-y: auto;
     overflow-x: hidden;
+    margin-top: 10px;
+}
+
+.exitBtn {
+    width: 25px;
+    background: none;
+    border-style: none;
+    font-size: 18px;
+}
+
+.exitBtn:hover {
+    cursor: pointer;
+    background-color: #ffffff31;
+}
+
+.doneBtn {
+    background: none;
+    border-style: none;
+}
+
+.doneBtn:hover {
+    cursor: pointer;
+    background-color: #ffffff31;
+}
+
+.done {
+    text-decoration: line-through;
+    width: 350px;
+    text-align: left;
+    margin-left: 25px;
+    display: flex;
+    justify-content: space-between;
 }
